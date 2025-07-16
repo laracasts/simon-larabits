@@ -1,0 +1,11 @@
+@view-transition {
+    navigation: auto;
+}
+
+.marker {
+    view-transition-name: square;
+}
+
+/* ::view-transition-group(*) {
+    animation-duration: 20s;
+} */
