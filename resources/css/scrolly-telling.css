@@ -1,0 +1,38 @@
+#progress {
+    animation: progress 2s linear;
+    transform-origin: left;
+    animation-timeline: scroll();
+    isolation: isolate;
+}
+
+#cover-image {
+    animation: fade-away 2s linear;
+    animation-timeline: view();
+    animation-range: exit exit;
+    animation-fill-mode: forwards;
+}
+
+#avatar {
+    animation: spin 2s linear;
+    animation-timeline: view();
+    animation-range: exit -50% exit 30%;
+    animation-fill-mode: forwards;
+}
+@keyframes progress {
+    from {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes fade-away {
+    to {
+        opacity: 0;
+        transform: scale(0.9) translateY(200px);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotateY(180deg);
+    }
+}

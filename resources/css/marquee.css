@@ -1,0 +1,51 @@
+body {
+    padding: 0 2rem;
+}
+
+.marquee-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    overflow: clip;
+    transform: rotate(4deg);
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+    );
+}
+
+.marquee {
+    display: flex;
+    gap: 6rem;
+    animation: marquee 20s linear infinite;
+    min-width: max-content;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+
+    li {
+        flex-shrink: 0;
+    }
+
+    img {
+        height: 100px;
+        filter: grayscale(100%);
+        transition: filter 0.2s ease-in-out;
+
+        &:hover {
+            filter: grayscale(0%);
+        }
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 6rem / 2));
+    }
+}

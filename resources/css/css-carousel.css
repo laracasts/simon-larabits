@@ -1,0 +1,60 @@
+.carousel {
+    anchor-name: --carousel;
+    scroll-behavior: smooth;
+    margin: 2rem auto;
+    display: flex;
+    gap: 1rem;
+    max-width: 460px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    scroll-marker-group: after;
+
+    &::scroll-marker-group {
+        display: flex;
+        gap: 0.5rem;
+        place-content: center;
+    }
+
+    &::scroll-button(*) {
+        position: absolute;
+        padding: 0.5rem 1rem;
+        position-anchor: --carousel;
+        align-self: anchor-center;
+    }
+
+    &::scroll-button(left) {
+        content: "◄" / "Scroll Left";
+        left: calc(anchor(left) - 4rem);
+    }
+
+    &::scroll-button(right) {
+        content: "►" / "Scroll Right";
+        right: calc(anchor(right) - 4rem);
+    }
+
+    li {
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+
+        &::scroll-marker {
+            content: "";
+            height: 1rem;
+            width: 1rem;
+            border-radius: 50%;
+            background: #c7c7c7;
+        }
+        &::scroll-marker:target-current {
+            background: dodgerblue;
+        }
+    }
+
+    img {
+        height: 200px;
+        width: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-radius: 24px;
+    }
+}

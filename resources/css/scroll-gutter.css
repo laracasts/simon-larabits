@@ -1,0 +1,14 @@
+@keyframes reveal {
+    from {
+        transform: translateY(4rem);
+        opacity: 0;
+    }
+}
+
+[data-reveal] {
+    animation: reveal 0.5s linear;
+    animation-timeline: view();
+    animation-range-start: entry 50px;
+    animation-range-end: 300px;
+    animation-fill-mode: both;
+}
